@@ -1,0 +1,31 @@
+package com.sabre.server;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+import com.sabre.data.FlightLeg;
+import com.sabre.interf.ObjectStorage;
+public class FlightLegStorage extends UnicastRemoteObject implements ObjectStorage{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected FlightLegStorage() throws RemoteException {
+		super();
+	}
+
+	@Override
+	public void put(FlightLeg flightLeg) throws RemoteException {
+		System.out.println("Storing Flight Leg wit index " + flightLeg.getIndex());
+		
+	}
+
+	@Override
+	public FlightLeg get() throws RemoteException {
+		System.out.println("Getting Flight Leg");
+		return null;
+	}
+
+}

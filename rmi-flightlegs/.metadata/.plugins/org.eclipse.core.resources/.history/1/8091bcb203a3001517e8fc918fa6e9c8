@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.sabre.interf;
+
+/**
+ * @author Jaime Aldana
+ *
+ */
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface ObjectStorage extends Remote{
+	public void put(FlightLeg flightLeg)  throws RemoteException;
+}

@@ -1,0 +1,41 @@
+package com.sabre.client;
+
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import com.sabre.data.FlightLeg;
+import com.sabre.interf.ObjectStorage;
+
+public class FlightLegClient {
+
+	private static final int PORT = 222;
+	private static final String HOST = "localhost";
+	public static void main(String[] args) throws RemoteException, NotBoundException {
+		Registry registry = LocateRegistry.getRegistry(FlightLegClient.HOST, FlightLegClient.PORT);
+		ObjectStorage flightLegStorage = (ObjectStorage) registry.lookup("FlightLegStorageServer");
+		
+		FlightLeg flightLeg1 = new FlightLeg(2040, 1, "DFW", "LAX");
+		FlightLeg flightLeg2 = new FlightLeg(2040, 2, "DFW", "LAX");
+		FlightLeg flightLeg3 = new FlightLeg(2040, 3, "DFW", "LAX");
+		FlightLeg flightLeg4 = new FlightLeg(2040, 4, "DFW", "LAX");
+		FlightLeg tempFlightLeg = null; //this variable is used to hold flight legs as a result of calling GET on the server
+		
+		
+		flightLegStorage.put(flightLeg1);
+		flightLegStorage.put(flightLeg4);
+		flightLegStorage.put(flightLeg2);
+		flightLegStorage.put(flightLeg1);
+		flightLegStorage.put(flightLeg3);
+		
+		do {
+			tempFlightLeg = flightLegStorage.get();
+			// Print the result if we got an object
+			if (tempFlightLeg != null) {
+				System.out.println(tempFlightLeg);
+			}
+		}while (tempFlightLeg != null);
+	}
+
+}

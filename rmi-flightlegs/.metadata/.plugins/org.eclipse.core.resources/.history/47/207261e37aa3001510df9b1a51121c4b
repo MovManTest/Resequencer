@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.sabre.server;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightStorageServer {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws RemoteException, AlreadyBoundException{
+		/* The security manager allows the server to download classes that are
+		 * not in our local classpath.
+		 * */
+//		if (System.getSecurityManager() == null) {
+  //          System.setSecurityManager(new SecurityManager());
+    //    }
+        try {
+            FlightLegStorage flightLegStorage = new FlightLegStorage();
+            // Make flightLegStorage through "stub" available to receive calls using port 0
+            //FlightLegStorage stub = (FlightLegStorage) UnicastRemoteObject.exportObject(flightLegStorage, 0);
+            //Registry registry = LocateRegistry.getRegistry();
+            Registry registry = LocateRegistry.createRegistry(222);
+            //registry.rebind("FlightLegStorage", stub);
+            registry.bind("FlightLegStorageServer", flightLegStorage);
+            System.out.println("FlightLegStorage server running.");
+        } catch (Exception e) {
+            System.err.println("FlightLegStorage exception:");
+            e.printStackTrace();
+        }
+	}
+}

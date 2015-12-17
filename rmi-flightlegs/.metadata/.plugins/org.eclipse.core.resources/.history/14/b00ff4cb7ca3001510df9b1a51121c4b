@@ -1,0 +1,10 @@
+package com.sabre.client;
+
+public class FlightLegClient {
+
+	public static void main(String[] args) {
+		Registry registry = LocateRegistry.getRegistry("localhost", 222);
+
+	}
+
+}

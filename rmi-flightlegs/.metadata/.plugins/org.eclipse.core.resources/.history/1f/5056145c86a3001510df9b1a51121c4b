@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.sabre.data;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightLeg {
+	private int flightNumber;
+	private int index;
+	private String departureAirport;
+	private String arrivalAirport;
+	
+	@Override
+	public String toString() {
+		return "FlightLeg [flightNumber=" + flightNumber + ", index=" + index + ", departureAirport=" + departureAirport
+				+ ", arrivalAirport=" + arrivalAirport + "]";
+	}
+	
+	
+}

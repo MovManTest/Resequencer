@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.sabre.data;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightLeg {
+	private int flightNumber;
+	private int index;
+	private String departureAirport;
+	private String arrivalAirport;
+}

@@ -1,0 +1,21 @@
+package com.sabre.server;
+
+import java.rmi.RemoteException;
+
+import com.sabre.data.FlightLeg;
+import com.sabre.interf.ObjectStorage;
+public class FlightLegStorage implements ObjectStorage{
+
+	@Override
+	public void put(FlightLeg flightLeg) throws RemoteException {
+		System.out.println("Storing Flight Leg");
+		
+	}
+
+	@Override
+	public FlightLeg get() throws RemoteException {
+		System.out.println("Getting Flight Leg");
+		return null;
+	}
+
+}

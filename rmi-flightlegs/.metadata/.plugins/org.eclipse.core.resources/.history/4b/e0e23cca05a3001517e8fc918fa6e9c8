@@ -1,0 +1,5 @@
+package com.sabre.server;
+
+public class FlightLegStorage {
+
+}

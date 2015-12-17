@@ -1,0 +1,49 @@
+package com.sabre.server;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
+import com.sabre.data.FlightLeg;
+import com.sabre.interf.ObjectStorage;
+public class FlightLegStorage extends UnicastRemoteObject implements ObjectStorage{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private ArrayList<FlightLeg> flightLegsList;
+	
+	protected FlightLegStorage() throws RemoteException {
+		super();
+		this.flightLegsList = new ArrayList<FlightLeg>();
+	}
+
+	@Override
+	public void put(FlightLeg flightLeg) throws RemoteException {
+		if (flightLeg != null) {
+			int index;
+			
+			for (index = 0; index < flightLegsList.size(); index++) {
+	            
+	        }
+			
+			System.out.println("Storing Flight Leg with index " + flightLeg.getIndex() + " in position " + index);
+			flightLegsList.add(index, flightLeg);
+		}
+		
+	}
+
+	@Override
+	public FlightLeg get() throws RemoteException {
+		FlightLeg firstElement = null;
+		if (flightLegsList.size() > 0) {
+			// Return the element with the lowest index (The first element on the list)
+			firstElement = flightLegsList.remove(0);
+		}
+		
+		return firstElement;
+	}
+
+}
