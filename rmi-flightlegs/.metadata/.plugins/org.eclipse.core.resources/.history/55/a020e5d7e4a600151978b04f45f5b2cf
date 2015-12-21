@@ -1,0 +1,59 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.sabre.data.FlightLeg;
+
+public class FlightLegStorageTest {
+	private FlightLegStorage flightLegStorage;
+
+	@Before
+	public void setup() {
+		try {
+			flightLegStorage = new FlightLegStorage();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			fail("Could not create a Flight Leg Storage.");
+		}
+	}
+	
+	@Test
+	public void testPutAndGetAscending() throws RemoteException {
+
+		FlightLeg flightLeg;
+		final int numOfLegs = 5;
+		
+		for (int i = 0; i < numOfLegs; i++) {
+			flightLeg = new FlightLeg(1010, i, "DFW", "LAX");
+			flightLegStorage.put(flightLeg);
+		}
+		
+		
+		fail("Not implemented");
+	}
+
+	// TEST CASE UTILITIES
+	
+	private boolean checkForCorrectGetOrder(List<Integer> list) {
+		boolean isInCorrectOrder = false;
+		if (list != null && !list.isEmpty()) {
+			int listIdx = 0;
+			Integer current;
+			Integer next;
+			
+			do {
+				list.get(listIdx);
+				listIdx++;
+			}while (i < list.size() && );
+				
+		}
+		
+		return isInCorrectOrder;
+	}
+}

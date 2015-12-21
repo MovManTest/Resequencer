@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FlightLegStorageTest" project="Server" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.sabre.server.FlightLegStorageTest" time="0.08">
+    <testcase name="testPutAndGetRandom" classname="com.sabre.server.FlightLegStorageTest" time="0.079"/>
+    <testcase name="testPutAndGetAscending" classname="com.sabre.server.FlightLegStorageTest" time="0.001"/>
+    <testcase name="testPutAndGetDescending" classname="com.sabre.server.FlightLegStorageTest" time="0.0"/>
+  </testsuite>
+</testrun>

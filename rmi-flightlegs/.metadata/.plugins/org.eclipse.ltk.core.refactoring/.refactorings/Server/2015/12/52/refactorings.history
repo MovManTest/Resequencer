@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;list&apos; in &apos;com.sabre.server.FlightLegStorageTest.checkForCorrectGetOrder(...)&apos; to &apos;indices&apos;&#x0D;&#x0A;- Original project: &apos;Server&apos;&#x0D;&#x0A;- Original element: &apos;com.sabre.server.FlightLegStorageTest.checkForCorrectGetOrder(int[]).list&apos;&#x0D;&#x0A;- Renamed element: &apos;list&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;list&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/tst&lt;com.sabre.server{FlightLegStorageTest.java[FlightLegStorageTest~checkForCorrectGetOrder~\[I@list!1100!1109!1106!1109!\[I!0!true" name="indices" references="true" stamp="1450714846851" version="1.0"/>
+</session>

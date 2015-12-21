@@ -1,0 +1,95 @@
+/**
+ * 
+ */
+package com.sabre.server;
+
+import java.rmi.AccessException;
+import java.rmi.AlreadyBoundException;
+import java.rmi.NotBoundException;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightStorageServer {
+
+	private static final int PORT = 1234;
+	private FlightLegStorage flightLegStorage;
+	private Registry registry;
+	
+	public FlightStorageServer() {
+		super();
+	}
+
+	protected FlightLegStorage createFlightLegStorage() throws RemoteException
+	{
+		return new FlightLegStorage();
+	}
+	
+	protected Registry createRegistry() throws RemoteException {
+		return LocateRegistry.createRegistry(FlightStorageServer.PORT);
+	}
+	
+	protected Registry getRegistry() throws RemoteException {
+		return LocateRegistry.getRegistry(FlightStorageServer.PORT);
+	}
+	
+	protected void bindRegistry(String str, Remote remote) throws AccessException, RemoteException {
+		registry.bind(str, remote);
+	}
+	
+	protected void rebindRegistry(String str, Remote remote) throws AccessException, RemoteException {
+		registry.rebind(str, remote);
+	}
+	
+	protected void unbindRegistry(String str) throws AccessException, RemoteException, NotBoundException {
+		registry.unbind(str);
+	}
+	
+	public void startServer() throws RemoteException
+	{
+		flightLegStorage = createFlightLegStorage();
+		
+		try {
+			registry = getRegistry();
+		} catch (RemoteException re) {
+			// If we couldn't get a registry try to create a new one
+			registry = createRegistry();
+		}
+		
+		if (registry != null) {
+			try {
+				bindRegistry("FlightLegStorageServer", flightLegStorage);
+			} catch (AccessException ae) {
+				// Permission problem
+				ae.printStackTrace();
+			} catch (RemoteException re) {
+				System.out.println("RemoteException, cause: " + re.getCause()); 
+			}
+			rebindRegistry("FlightLegStorageServer", flightLegStorage);
+	        System.out.println("FlightLegStorage server running.");
+		}
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws RemoteException, AlreadyBoundException{
+		/* The security manager allows the server to download classes that are
+		 * not in our local classpath. This implementation does not use a Security manager because
+		 * the server does not download any classes from remote locations
+		 * */
+
+        FlightStorageServer flightLegStorageServer = new FlightStorageServer();
+        
+        try {
+        	flightLegStorageServer.startServer();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+	}
+}

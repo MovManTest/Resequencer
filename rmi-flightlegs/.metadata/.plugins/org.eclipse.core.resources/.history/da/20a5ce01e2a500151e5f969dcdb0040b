@@ -1,0 +1,25 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.registry.Registry;
+
+import org.junit.Test;
+import org.mockito.Mock;
+
+public class FlightStorageServerTest {
+
+	private FlightStorageServer flightLegStorageServer;
+	
+	@Mock
+	FlightLegStorage flightLegStorage;
+	Registry registry;
+	
+	@Test
+	public void test() {
+		flightLegStorageServer = new FlightStorageServer();
+		
+		fail("Not yet implemented");
+	}
+
+}

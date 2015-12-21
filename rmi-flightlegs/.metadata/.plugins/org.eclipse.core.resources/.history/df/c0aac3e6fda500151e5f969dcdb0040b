@@ -1,0 +1,53 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+
+import static org.mockito.Mockito.*;
+
+public class FlightStorageServerTest {
+
+	@InjectMocks
+	private FlightStorageServer flightLegStorageServer;
+	
+	//@Mock
+	//private FlightLegStorage flightLegStorage;
+	@Mock
+	private Registry registry;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@Test
+	public void testSuccess() throws RemoteException {
+		flightLegStorageServer = spy(new FlightStorageServer());
+		try {
+			registry = LocateRegistry.getRegistry();
+		} catch (RemoteException re) {
+			fail("Could not get the Registry");
+		}
+		
+		when (flightLegStorageServer.getRegistry()).thenReturn(registry);
+
+		doNothing()
+	      .when(flightLegStorageServer)
+	      .rebindRegistry(Mockito.any(String.class), Mockito.any(Remote.class));
+		
+		fail("Not yet implemented");
+	}
+
+}

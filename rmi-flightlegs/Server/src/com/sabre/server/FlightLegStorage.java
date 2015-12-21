@@ -36,7 +36,6 @@ public class FlightLegStorage extends UnicastRemoteObject implements ObjectStora
 				}
 	        }
 			
-			System.out.println("Storing Flight Leg with index " + flightLeg.getIndex() + " in position " + index);
 			flightLegsList.add(index, flightLeg);
 		}
 		
@@ -51,6 +50,10 @@ public class FlightLegStorage extends UnicastRemoteObject implements ObjectStora
 		}
 		
 		return firstElement;
+	}
+	
+	public int getCount(){
+		return flightLegsList.size();
 	}
 
 }
