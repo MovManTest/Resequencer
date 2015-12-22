@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="FlightStorageServerTest" project="Server" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="com.sabre.server.FlightStorageServerTest" time="0.228">
-    <testcase name="testRemoteExceptionOnRebind" classname="com.sabre.server.FlightStorageServerTest" time="0.218"/>
-    <testcase name="testAccessExceptionOnRebind" classname="com.sabre.server.FlightStorageServerTest" time="0.002"/>
-    <testcase name="testRemoteExceptionOnCreateFlightLegStorage" classname="com.sabre.server.FlightStorageServerTest" time="0.001"/>
-    <testcase name="testSuccess" classname="com.sabre.server.FlightStorageServerTest" time="0.007"/>
-  </testsuite>
-</testrun>

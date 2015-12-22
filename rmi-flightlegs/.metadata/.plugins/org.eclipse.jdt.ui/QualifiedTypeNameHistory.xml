@@ -20,4 +20,5 @@
 <fullyQualifiedTypeName name="java.rmi.AccessException"/>
 <fullyQualifiedTypeName name="com.sabre.data.FlightLeg"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>
