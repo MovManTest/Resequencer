@@ -1,0 +1,81 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.sabre.data.FlightLeg;
+
+public class FlightLegStorageTest {
+	private FlightLegStorage flightLegStorage;
+
+	@Before
+	public void setup() {
+		try {
+			flightLegStorage = new FlightLegStorage();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			fail("Could not create a Flight Leg Storage.");
+		}
+	}
+	
+	@Test
+	public void testPutAndGetAscending() throws RemoteException {
+
+		FlightLeg flightLeg;
+		final int numOfLegs = 5;
+		int i;
+		int [] getIdxOrder = new int[numOfLegs];
+		
+		for (i = 0; i < numOfLegs; i++) {
+			flightLeg = new FlightLeg(1010, i, "DFW", "LAX");
+			flightLegStorage.put(flightLeg);
+		}
+		
+		for (i = 0; i < numOfLegs; i++) {
+			flightLeg = flightLegStorage.get();
+			getIdxOrder[i] = flightLeg.getIndex();
+		}
+		
+		checkForCorrectGetOrder(getIdxOrder);
+		
+		fail("Not implemented");
+	}
+
+	// TEST CASE UTILITIES
+	
+	/**
+	 * @param indices
+	 * @return Returns true if the received indices are in ascending order or false if
+	 *         the indices are not in ascending order.
+	 */
+	private boolean checkForCorrectGetOrder(int[] indices) {
+		boolean isInCorrectOrder = false;
+		if (indices != null && indices.length > 0) {
+			if (indices.length == 1) {
+				isInCorrectOrder = true;
+			} else {
+				int listIdx = 1; // we will start from the second element in the list and compare against the previous element.
+				int current;
+				int prev;
+				isInCorrectOrder = true; // List is in correct order unless we find an element not ordered.
+				// By this time we know that the list has at least 2 elements.
+				while (listIdx < indices.length &&  isInCorrectOrder)  {
+					current = indices[listIdx];
+					prev = indices[listIdx - 1];
+					if (prev > current) {
+						isInCorrectOrder = false;
+					}
+					listIdx++;
+				}
+			}
+		}
+		
+		return isInCorrectOrder;
+	}
+}

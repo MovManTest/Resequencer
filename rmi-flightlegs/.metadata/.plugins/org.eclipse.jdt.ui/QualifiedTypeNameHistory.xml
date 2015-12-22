@@ -5,10 +5,20 @@
 <fullyQualifiedTypeName name="java.nio.channels.AlreadyBoundException"/>
 <fullyQualifiedTypeName name="java.rmi.AlreadyBoundException"/>
 <fullyQualifiedTypeName name="java.rmi.registry.Registry"/>
-<fullyQualifiedTypeName name="java.rmi.registry.LocateRegistry"/>
 <fullyQualifiedTypeName name="com.sabre.interf.ObjectStorage"/>
-<fullyQualifiedTypeName name="com.sabre.data.FlightLeg"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.sabre.server.FlightLegStorage"/>
+<fullyQualifiedTypeName name="org.mockito.Mock"/>
+<fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
+<fullyQualifiedTypeName name="org.mockito.Spy"/>
+<fullyQualifiedTypeName name="java.rmi.registry.LocateRegistry"/>
+<fullyQualifiedTypeName name="org.mockito.Mockito"/>
+<fullyQualifiedTypeName name="java.rmi.Remote"/>
+<fullyQualifiedTypeName name="java.rmi.AccessException"/>
+<fullyQualifiedTypeName name="com.sabre.data.FlightLeg"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

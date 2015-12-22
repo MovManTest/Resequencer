@@ -1,0 +1,33 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.registry.Registry;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.*;
+
+public class FlightStorageServerTest {
+
+	private FlightStorageServer flightLegStorageServer;
+	
+	@Mock
+	FlightLegStorage flightLegStorage;
+	Registry registry;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@Test
+	public void test() {
+		flightLegStorageServer = new FlightStorageServer();
+		
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.sabre.server;
+
+import static org.junit.Assert.*;
+
+import java.rmi.RemoteException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class FlightLegStorageTest {
+	private FlightLegStorage flightLegStorage;
+
+	@Before
+	public void setup() {
+		try {
+			flightLegStorage = new FlightLegStorage();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testPutAndGet() {
+			try {
+				flightLegStorage = new FlightLegStorage();
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		fail("Not implemented");
+	}
+
+}
