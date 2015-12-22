@@ -25,6 +25,8 @@ public class FlightLegStorage extends UnicastRemoteObject implements ObjectStora
 		if (flightLeg != null) {
 			int index;
 			FlightLeg currentLeg;
+			
+			// We will go through the elements of the list to insert the flight leg in the correct position
 			for (index = 0; index < flightLegsList.size(); index++) {
 				currentLeg = flightLegsList.get(index);
 				if (currentLeg.getIndex() >= flightLeg.getIndex()) {

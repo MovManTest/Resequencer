@@ -28,7 +28,6 @@ public class FlightStorageServerTest {
 		MockitoAnnotations.initMocks(this);
 		
 		flightLegStorageServer = Mockito.spy(new FlightStorageServer());
-		// TODO: How can I create a registry without the need of calling getRegistry?
 		try {
 			registry = LocateRegistry.getRegistry();
 		} catch (RemoteException re) {
