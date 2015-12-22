@@ -1,0 +1,6 @@
+package com.sabre.server;
+
+import com.sabre.interf.ObjectStorage;
+public class FlightLegStorage implements ObjectStorage{
+
+}

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.sabre.data;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightLeg {
+
+}

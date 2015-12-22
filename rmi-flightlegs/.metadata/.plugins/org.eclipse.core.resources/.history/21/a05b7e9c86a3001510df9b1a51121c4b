@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package com.sabre.data;
+
+import java.io.Serializable;
+
+/**
+ * @author x0092516
+ *
+ */
+public class FlightLeg implements Serializable {
+	private int flightNumber;
+	private int index;
+	private String departureAirport;
+	private String arrivalAirport;
+	
+	@Override
+	public String toString() {
+		return "FlightLeg [flightNumber=" + flightNumber + ", index=" + index + ", departureAirport=" + departureAirport
+				+ ", arrivalAirport=" + arrivalAirport + "]";
+	}
+	
+	
+}

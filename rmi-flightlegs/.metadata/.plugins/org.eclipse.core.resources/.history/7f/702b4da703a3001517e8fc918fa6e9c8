@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.sabre.interf;
+
+/**
+ * @author x0092516
+ *
+ */
+public interface ObjectStorage {
+
+}

@@ -1,0 +1,18 @@
+package com.sabre.client;
+
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import com.sabre.interf.ObjectStorage;
+
+public class FlightLegClient {
+
+	public static void main(String[] args) throws RemoteException, NotBoundException {
+		Registry registry = LocateRegistry.getRegistry("localhost", 222);
+		ObjectStorage flightLegStorage = (ObjectStorage) registry.lookup("FlightLegStorageServer");
+		
+	}
+
+}
